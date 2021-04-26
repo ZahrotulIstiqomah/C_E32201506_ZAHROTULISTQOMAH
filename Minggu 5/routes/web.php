@@ -1,9 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Frontend\HomeController;
-use App\Http\Controllers\Backend\DashboardController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,11 +15,32 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['namespace' => 'Frontend'], function () {
-    Route::get('home',[HomeController::class, 'index']);
+/*Route::get('/hello', function() {
+    return 'Hello Word' ;
 });
 
-Route::group(['namespace' => 'Backend'], function () {
-    Route::get('dashboard',[DashboardController::class, 'index']);
+Route::get('/belajar', function () {
+    echo '<h1>Hello World</h1>';
+    echo '<p>Sedang Belajar Laravel</p>';
 });
 
+Route::get('page/{nomor}', function($nomor){
+    return 'ini Halaman ke-' . $nomor;
+});
+
+/*Route::get('user', 'ManagementUserController@index');
+Route::resource('user', 'ManagementUserController');
+
+Route::get("home", function(){
+    return view("home");
+});*/
+
+
+Route::group(['namespace'=> 'frontend'], function(){
+	Route::resource('home', 'HomeController');
+});
+
+Route::group(['namespace'=>'backend'], function()
+{
+  Route::resource('dashboard','DashboardController');
+});

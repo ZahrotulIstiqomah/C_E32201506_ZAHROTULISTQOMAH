@@ -7,7 +7,7 @@
   <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
   <meta name="author" content="GeeksLabs">
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
-  <link rel="shortcut icon" href="img/favicon.png">
+  <link rel="shortcut icon" href="{{ asset('backend/img/favicon.png') }}">
 
   <title>{{ config('app.name')}}</title>
 
@@ -309,10 +309,10 @@
     </header>
     <!--header end-->
 
-    @include('backend/layouts.sidebar')
+    @include ('backend/layouts.sidebar')
 
     @yield('content')
-
+    
   </section>
   <!-- container section start -->
 
